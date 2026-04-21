@@ -1,4 +1,5 @@
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+const CONTACT_FN_VERSION = "2026-04-21.03";
 
 function jsonResponse(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -26,6 +27,34 @@ function normalizeMessage(value, maxLength = 2000) {
     .slice(0, maxLength);
 }
 
+function getRuntimeConfig(env) {
+  const apiKey = (env.RESEND_API_KEY || "").trim();
+  const toEmail = normalizeWhitespace(env.CONTACT_TO_EMAIL || "josepaulo@delucena.dev", 160).toLowerCase();
+  const fromEmail = normalizeWhitespace(env.CONTACT_FROM_EMAIL || "contato@lucenasolucoes.com", 160).toLowerCase();
+  const subjectPrefix = normalizeWhitespace(env.CONTACT_SUBJECT_PREFIX || "[Site Lucena]", 80);
+
+  return {
+    apiKey,
+    toEmail,
+    fromEmail,
+    subjectPrefix,
+  };
+}
+
+function getConfigDiagnostics(config) {
+  return {
+    contact_fn_version: CONTACT_FN_VERSION,
+    has_resend_api_key: Boolean(config.apiKey),
+    resend_api_key_prefix: config.apiKey ? config.apiKey.slice(0, 3) : "",
+    resend_api_key_length: config.apiKey.length,
+    has_contact_to_email: Boolean(config.toEmail),
+    has_contact_from_email: Boolean(config.fromEmail),
+    contact_to_email_valid: EMAIL_RE.test(config.toEmail),
+    contact_from_email_valid: EMAIL_RE.test(config.fromEmail),
+    subject_prefix: config.subjectPrefix || "[vazio]",
+  };
+}
+
 function validatePayload(payload) {
   if (payload.website) return null;
   if (payload.name.length < 3) return "Informe seu nome completo.";
@@ -39,29 +68,32 @@ function validatePayload(payload) {
 }
 
 async function sendEmailWithResend(env, payload) {
-  const apiKey = (env.RESEND_API_KEY || "").trim();
-  const toEmail = normalizeWhitespace(env.CONTACT_TO_EMAIL || "josepaulo@delucena.dev", 160).toLowerCase();
-  const fromEmail = normalizeWhitespace(env.CONTACT_FROM_EMAIL || "contato@lucenasolucoes.com", 160).toLowerCase();
-  const subjectPrefix = normalizeWhitespace(env.CONTACT_SUBJECT_PREFIX || "[Site Lucena]", 80);
+  const config = getRuntimeConfig(env);
+  const diagnostics = getConfigDiagnostics(config);
 
-  if (!apiKey) {
+  console.info("[contact-form] runtime diagnostics", diagnostics);
+
+  if (!config.apiKey) {
     return {
       ok: false,
       status: 503,
-      message:
-        "Formulário temporariamente indisponível. Configuração de e-mail pendente no servidor.",
+      message: "RESEND_API_KEY ausente no runtime da Cloudflare Function.",
+      code: "missing_resend_api_key",
+      diagnostics,
     };
   }
 
-  if (!EMAIL_RE.test(toEmail) || !EMAIL_RE.test(fromEmail)) {
+  if (!EMAIL_RE.test(config.toEmail) || !EMAIL_RE.test(config.fromEmail)) {
     return {
       ok: false,
       status: 503,
-      message: "Formulário temporariamente indisponível. Destino de e-mail inválido.",
+      message: "CONTACT_TO_EMAIL ou CONTACT_FROM_EMAIL inválido no runtime.",
+      code: "invalid_contact_emails",
+      diagnostics,
     };
   }
 
-  const subject = `${subjectPrefix} Novo contato - ${payload.name}`;
+  const subject = `${config.subjectPrefix} Novo contato - ${payload.name}`;
   const text = [
     "Novo contato recebido pelo formulário do site.",
     "",
@@ -82,12 +114,12 @@ async function sendEmailWithResend(env, payload) {
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${config.apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
+      from: config.fromEmail,
+      to: [config.toEmail],
       reply_to: payload.email,
       subject,
       text,
@@ -97,15 +129,24 @@ async function sendEmailWithResend(env, payload) {
   if (!resendResponse.ok) {
     const resendBody = await resendResponse.text();
     console.error("[contact-form] resend error", resendResponse.status, resendBody);
+    let resendMessage = "Não foi possível enviar agora. Tente novamente em instantes.";
+    try {
+      const parsed = JSON.parse(resendBody);
+      if (parsed?.message) resendMessage = `Resend: ${String(parsed.message).slice(0, 220)}`;
+    } catch {
+      // no-op
+    }
 
     return {
       ok: false,
       status: 502,
-      message: "Não foi possível enviar agora. Tente novamente em instantes.",
+      message: resendMessage,
+      code: "resend_api_error",
+      diagnostics,
     };
   }
 
-  return { ok: true };
+  return { ok: true, diagnostics };
 }
 
 export async function onRequestPost(context) {
@@ -143,13 +184,44 @@ export async function onRequestPost(context) {
 
   const sendResult = await sendEmailWithResend(env, payload);
   if (!sendResult.ok) {
-    return jsonResponse({ ok: false, message: sendResult.message }, sendResult.status);
+    return jsonResponse(
+      {
+        ok: false,
+        message: sendResult.message,
+        code: sendResult.code || "send_failed",
+        diagnostics: sendResult.diagnostics,
+      },
+      sendResult.status
+    );
   }
 
-  return jsonResponse({ ok: true, message: "Solicitação enviada com sucesso." }, 200);
+  return jsonResponse(
+    {
+      ok: true,
+      message: "Solicitação enviada com sucesso.",
+      diagnostics: sendResult.diagnostics,
+    },
+    200
+  );
 }
 
 export async function onRequest(context) {
+  const config = getRuntimeConfig(context.env || {});
+  const diagnostics = getConfigDiagnostics(config);
+  console.info("[contact-form] request", {
+    method: context.request.method,
+    path: new URL(context.request.url).pathname,
+    diagnostics,
+  });
+
+  if (context.request.method === "GET") {
+    return jsonResponse({
+      ok: true,
+      message: "Contact endpoint online.",
+      diagnostics,
+    });
+  }
+
   if (context.request.method === "POST") {
     return onRequestPost(context);
   }
