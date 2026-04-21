@@ -79,7 +79,7 @@ Use sempre:
 Exemplo:
 
 ```text
-https://www.lucenasolucoes.com.br/?utm_source=paraiba_pet&utm_medium=referral&utm_campaign=institucional_2026q2&utm_id=pp_case_site
+https://lucenasolucoes.com/?utm_source=paraiba_pet&utm_medium=referral&utm_campaign=institucional_2026q2&utm_id=pp_case_site
 ```
 
 ## Indexacao (SEO)
@@ -94,8 +94,8 @@ O site foi ajustado com base de indexacao para Google:
 ### Checklist operacional
 
 1. Publicar o deploy em producao.
-2. Enviar `https://www.lucenasolucoes.com.br/sitemap.xml` no Google Search Console.
+2. Enviar `https://lucenasolucoes.com/sitemap.xml` no Google Search Console.
 3. Solicitar indexacao das URLs principais:
-   - `https://www.lucenasolucoes.com.br/`
-   - `https://www.lucenasolucoes.com.br/paraiba-pet.html`
+   - `https://lucenasolucoes.com/`
+   - `https://lucenasolucoes.com/paraiba-pet.html`
 4. Monitorar cobertura e consultas no Search Console (Performance > Consultas).
