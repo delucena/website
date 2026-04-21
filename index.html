@@ -49,7 +49,7 @@
             "name": "Lucena Soluções",
             "url": "https://lucenasolucoes.com/",
             "logo": "https://lucenasolucoes.com/assets/images/logo-lucena.png",
-            "email": "contato@lucenasolucoes.com.br",
+            "email": "contato@lucenasolucoes.com",
             "telephone": "+55-83-98838-3198"
           },
           {
@@ -102,7 +102,7 @@
           <a href="#contato">Contato</a>
         </nav>
 
-        <a class="header-cta" href="mailto:contato@lucenasolucoes.com.br">Agendar conversa</a>
+        <a class="header-cta" href="#contato">Agendar conversa</a>
       </div>
     </header>
 
@@ -126,7 +126,7 @@
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="/paraiba-pet.html">Conhecer o Paraíba Pet</a>
-              <a class="btn btn-secondary" href="mailto:contato@lucenasolucoes.com.br">Agendar demonstração</a>
+              <a class="btn btn-secondary" href="#contato">Agendar demonstração</a>
             </div>
           </div>
         </div>
@@ -333,7 +333,80 @@
             Apresentamos uma leitura clara da operação, os fluxos prioritários e como adaptar essa lógica à
             realidade do seu município, secretaria ou instituição.
           </p>
-          <a class="btn btn-primary" href="mailto:contato@lucenasolucoes.com.br">Falar com a Lucena Soluções</a>
+
+          <div class="contact-shell">
+            <form class="contact-form contact-card" data-contact-form data-form-name="contato_site_principal" novalidate>
+              <div class="contact-grid">
+                <label class="contact-field">
+                  <span>Nome completo*</span>
+                  <input type="text" name="name" autocomplete="name" required maxlength="120" />
+                </label>
+
+                <label class="contact-field">
+                  <span>E-mail profissional*</span>
+                  <input type="email" name="email" autocomplete="email" required maxlength="160" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Telefone / WhatsApp*</span>
+                  <input type="tel" name="phone" autocomplete="tel" required maxlength="32" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Órgão, empresa ou instituição*</span>
+                  <input type="text" name="organization" autocomplete="organization" required maxlength="160" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Interesse principal*</span>
+                  <select name="interest" required>
+                    <option value="">Selecione</option>
+                    <option value="demonstracao">Agendar demonstração</option>
+                    <option value="implantacao">Implantar no meu município/instituição</option>
+                    <option value="parceria">Parceria institucional</option>
+                    <option value="outro">Outro assunto</option>
+                  </select>
+                </label>
+
+                <label class="contact-field contact-field-full">
+                  <span>Mensagem*</span>
+                  <textarea
+                    name="message"
+                    rows="5"
+                    required
+                    maxlength="2000"
+                    placeholder="Conte o cenário atual e o que você quer organizar na operação."
+                  ></textarea>
+                </label>
+              </div>
+
+              <label class="contact-check">
+                <input type="checkbox" name="consent" required />
+                <span>Autorizo a Lucena Soluções a retornar este contato pelos dados informados.</span>
+              </label>
+
+              <input class="contact-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <div class="contact-actions">
+                <button class="btn btn-primary" type="submit" data-default-label="Enviar solicitação">
+                  Enviar solicitação
+                </button>
+                <p class="contact-feedback" data-contact-feedback aria-live="polite"></p>
+              </div>
+            </form>
+
+            <aside class="contact-card contact-info" aria-label="Informações de contato">
+              <h3>Atendimento comercial</h3>
+              <p>
+                Após o envio, nossa equipe retorna com os próximos passos para demonstração e alinhamento da sua
+                operação.
+              </p>
+              <ul class="contact-info-list">
+                <li><strong>E-mail oficial:</strong> contato@lucenasolucoes.com</li>
+                <li><strong>Telefone:</strong> +55 (83) 98838-3198</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </section>
     </main>
@@ -357,8 +430,9 @@
         <div>
           <p class="footer-title">Contato</p>
           <ul>
-            <li><a href="mailto:contato@lucenasolucoes.com.br">contato@lucenasolucoes.com.br</a></li>
+            <li>contato@lucenasolucoes.com</li>
             <li><a href="tel:+5583988383198">+55 (83) 98838-3198</a></li>
+            <li><a href="#contato">Formulário de contato</a></li>
           </ul>
         </div>
 
@@ -378,6 +452,7 @@
       </div>
     </footer>
 
+    <script type="module" src="/src/scripts/contact-form.js"></script>
     <script type="module" src="/src/scripts/analytics.js"></script>
   </body>
 </html>

@@ -42,7 +42,7 @@
             "name": "Lucena Soluções",
             "url": "https://lucenasolucoes.com/",
             "logo": "https://lucenasolucoes.com/assets/images/logo-lucena.png",
-            "email": "contato@lucenasolucoes.com.br",
+            "email": "contato@lucenasolucoes.com",
             "telephone": "+55-83-98838-3198"
           },
           {
@@ -90,7 +90,7 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/index.html" aria-label="Lucena Soluções - início">
+        <a class="brand" href="/" aria-label="Lucena Soluções - início">
           <img
             class="brand-logo"
             src="/assets/images/logo-lucena-header.png"
@@ -102,7 +102,7 @@
         </a>
 
         <nav aria-label="Navegação principal" class="desktop-nav">
-          <a href="/index.html">Início</a>
+          <a href="/">Início</a>
           <a href="#visao-geral">Visão executiva</a>
           <a href="#operacao">Operação</a>
           <a href="#provas-publicas">Provas públicas</a>
@@ -134,7 +134,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="mailto:contato@lucenasolucoes.com.br">Agendar apresentação</a>
+              <a class="btn btn-primary" href="#contato">Agendar apresentação</a>
               <a class="btn btn-secondary" href="https://sepa.pb.gov.br" target="_blank" rel="noopener noreferrer">
                 Ver plataforma em ação
               </a>
@@ -347,7 +347,79 @@
             Nossa equipe pode apresentar um plano de implementação aderente à sua realidade operacional e à sua
             política pública.
           </p>
-          <a class="btn btn-primary" href="mailto:contato@lucenasolucoes.com.br">Entrar em contato</a>
+
+          <div class="contact-shell">
+            <form class="contact-form contact-card" data-contact-form data-form-name="contato_paraiba_pet" novalidate>
+              <div class="contact-grid">
+                <label class="contact-field">
+                  <span>Nome completo*</span>
+                  <input type="text" name="name" autocomplete="name" required maxlength="120" />
+                </label>
+
+                <label class="contact-field">
+                  <span>E-mail profissional*</span>
+                  <input type="email" name="email" autocomplete="email" required maxlength="160" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Telefone / WhatsApp*</span>
+                  <input type="tel" name="phone" autocomplete="tel" required maxlength="32" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Órgão, empresa ou instituição*</span>
+                  <input type="text" name="organization" autocomplete="organization" required maxlength="160" />
+                </label>
+
+                <label class="contact-field">
+                  <span>Interesse principal*</span>
+                  <select name="interest" required>
+                    <option value="">Selecione</option>
+                    <option value="demonstracao">Agendar demonstração</option>
+                    <option value="implantacao">Implantar no meu município/instituição</option>
+                    <option value="parceria">Parceria institucional</option>
+                    <option value="outro">Outro assunto</option>
+                  </select>
+                </label>
+
+                <label class="contact-field contact-field-full">
+                  <span>Mensagem*</span>
+                  <textarea
+                    name="message"
+                    rows="5"
+                    required
+                    maxlength="2000"
+                    placeholder="Conte o cenário atual e o que você quer organizar na operação."
+                  ></textarea>
+                </label>
+              </div>
+
+              <label class="contact-check">
+                <input type="checkbox" name="consent" required />
+                <span>Autorizo a Lucena Soluções a retornar este contato pelos dados informados.</span>
+              </label>
+
+              <input class="contact-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <div class="contact-actions">
+                <button class="btn btn-primary" type="submit" data-default-label="Enviar solicitação">
+                  Enviar solicitação
+                </button>
+                <p class="contact-feedback" data-contact-feedback aria-live="polite"></p>
+              </div>
+            </form>
+
+            <aside class="contact-card contact-info" aria-label="Informações de contato">
+              <h3>Atendimento comercial</h3>
+              <p>
+                Envie os dados da sua gestão e retornamos com proposta de demonstração e plano de implantação.
+              </p>
+              <ul class="contact-info-list">
+                <li><strong>E-mail oficial:</strong> contato@lucenasolucoes.com</li>
+                <li><strong>Telefone:</strong> +55 (83) 98838-3198</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </section>
     </main>
@@ -371,17 +443,18 @@
         <div>
           <p class="footer-title">Contato</p>
           <ul>
-            <li><a href="mailto:contato@lucenasolucoes.com.br">contato@lucenasolucoes.com.br</a></li>
+            <li>contato@lucenasolucoes.com</li>
             <li><a href="tel:+5583988383198">+55 (83) 98838-3198</a></li>
+            <li><a href="#contato">Formulário de contato</a></li>
           </ul>
         </div>
 
         <div>
           <p class="footer-title">Links</p>
           <ul>
-            <li><a href="/index.html">Site principal</a></li>
+            <li><a href="/">Site principal</a></li>
             <li><a href="https://sepa.pb.gov.br" target="_blank" rel="noopener noreferrer">SEPA PB</a></li>
-            <li><a href="/index.html#paraiba-pet">Seção Paraíba Pet</a></li>
+            <li><a href="/#paraiba-pet">Seção Paraíba Pet</a></li>
           </ul>
         </div>
       </div>
@@ -656,6 +729,7 @@
       </div>
     </dialog>
 
+    <script type="module" src="/src/scripts/contact-form.js"></script>
     <script type="module" src="/src/scripts/analytics.js"></script>
     <script>
       (() => {
