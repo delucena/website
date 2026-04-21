@@ -1,0 +1,35 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' role='img' aria-label='Dashboard de solicitações e IA Pet Digital'>
+  <rect width='1200' height='800' fill='#edf5fc'/>
+  <rect x='40' y='36' width='1120' height='86' rx='16' fill='#ffffff' stroke='#cbdced'/>
+  <text x='74' y='84' fill='#14263d' font-size='34' font-family='Segoe UI, Arial' font-weight='700'>Solicitações, Tempo de Resposta e IA Pet Digital</text>
+  <rect x='40' y='150' width='540' height='600' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='66' y='196' fill='#14263d' font-size='26' font-family='Segoe UI, Arial' font-weight='600'>Fila de solicitações</text>
+  <rect x='66' y='220' width='488' height='86' rx='12' fill='#eef6fd'/>
+  <text x='92' y='258' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='700'>Teleconsulta - Prioridade alta</text>
+  <text x='92' y='286' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Tempo estimado: 40 min</text>
+  <rect x='66' y='322' width='488' height='86' rx='12' fill='#eef6fd'/>
+  <text x='92' y='360' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='700'>Adoção assistida - Triagem</text>
+  <text x='92' y='388' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Tempo estimado: 1 dia</text>
+  <rect x='66' y='424' width='488' height='86' rx='12' fill='#eef6fd'/>
+  <text x='92' y='462' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='700'>Denúncia com mídia anexada</text>
+  <text x='92' y='490' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Encaminhar para fiscalização</text>
+  <rect x='66' y='540' width='488' height='184' rx='12' fill='#f7fbff' stroke='#d4e4f3'/>
+  <text x='92' y='580' fill='#14263d' font-size='24' font-family='Segoe UI, Arial' font-weight='600'>Tempo de resposta institucional</text>
+  <text x='92' y='635' fill='#1f75b2' font-size='56' font-family='Segoe UI, Arial' font-weight='700'>1h 48min</text>
+  <text x='92' y='672' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Meta: abaixo de 2h</text>
+  <rect x='620' y='150' width='540' height='600' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='646' y='196' fill='#14263d' font-size='26' font-family='Segoe UI, Arial' font-weight='600'>IA Pet Digital por tutor</text>
+  <rect x='646' y='220' width='488' height='156' rx='12' fill='#eef6fd'/>
+  <text x='672' y='260' fill='#1f75b2' font-size='24' font-family='Segoe UI, Arial' font-weight='700'>Perfil de IA personalizado</text>
+  <text x='672' y='296' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Histórico do pet + lembretes + orientações</text>
+  <text x='672' y='328' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>apoio em linguagem simples para o tutor</text>
+  <rect x='646' y='396' width='488' height='148' rx='12' fill='#eef6fd'/>
+  <text x='672' y='434' fill='#1f75b2' font-size='24' font-family='Segoe UI, Arial' font-weight='700'>Recomendações para gestão</text>
+  <text x='672' y='470' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>IA indica picos de demanda e</text>
+  <text x='672' y='502' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>sugere alocação de equipe</text>
+  <rect x='646' y='562' width='488' height='162' rx='12' fill='#eef6fd'/>
+  <text x='672' y='600' fill='#1f75b2' font-size='24' font-family='Segoe UI, Arial' font-weight='700'>Visão rápida para dirigentes</text>
+  <text x='672' y='636' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Atendidos hoje: 87</text>
+  <text x='672' y='668' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Previsão amanhã: 112</text>
+  <text x='672' y='700' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Risco alto em denúncias: 6</text>
+</svg>

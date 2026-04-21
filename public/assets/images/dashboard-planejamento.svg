@@ -1,0 +1,36 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' role='img' aria-label='Dashboard de planejamento de atendimento'>
+  <rect width='1200' height='800' fill='#eef5fc'/>
+  <rect x='40' y='36' width='1120' height='86' rx='16' fill='#ffffff' stroke='#cbdced'/>
+  <text x='74' y='84' fill='#14263d' font-size='34' font-family='Segoe UI, Arial' font-weight='700'>Planejamento de Atendimentos e Capacidade</text>
+  <rect x='40' y='150' width='1120' height='280' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='66' y='196' fill='#14263d' font-size='26' font-family='Segoe UI, Arial' font-weight='600'>Quantos animais já atendemos e quantos vamos atender</text>
+  <polyline points='90,360 230,320 370,300 510,260 650,240 790,200 930,180 1070,155' fill='none' stroke='#1f75b2' stroke-width='8'/>
+  <circle cx='230' cy='320' r='8' fill='#1f75b2'/><circle cx='370' cy='300' r='8' fill='#1f75b2'/><circle cx='510' cy='260' r='8' fill='#1f75b2'/><circle cx='650' cy='240' r='8' fill='#1f75b2'/><circle cx='790' cy='200' r='8' fill='#1f75b2'/><circle cx='930' cy='180' r='8' fill='#1f75b2'/>
+  <line x1='90' y1='380' x2='1080' y2='380' stroke='#d4e1ee' stroke-width='3'/>
+  <text x='90' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Jan</text>
+  <text x='240' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Fev</text>
+  <text x='390' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Mar</text>
+  <text x='540' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Abr</text>
+  <text x='690' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Mai</text>
+  <text x='840' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Jun</text>
+  <text x='990' y='410' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Jul</text>
+  <rect x='40' y='460' width='360' height='290' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='66' y='504' fill='#14263d' font-size='24' font-family='Segoe UI, Arial' font-weight='600'>Atendidos no mês</text>
+  <text x='66' y='585' fill='#1f75b2' font-size='72' font-family='Segoe UI, Arial' font-weight='700'>2.184</text>
+  <text x='66' y='628' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>+18% vs mês anterior</text>
+  <rect x='420' y='460' width='360' height='290' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='446' y='504' fill='#14263d' font-size='24' font-family='Segoe UI, Arial' font-weight='600'>Previsão próximo mês</text>
+  <text x='446' y='585' fill='#1f75b2' font-size='72' font-family='Segoe UI, Arial' font-weight='700'>2.530</text>
+  <text x='446' y='628' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>IA sugere ampliar 2 equipes</text>
+  <rect x='800' y='460' width='360' height='290' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='826' y='504' fill='#14263d' font-size='24' font-family='Segoe UI, Arial' font-weight='600'>Tempo médio por etapa</text>
+  <rect x='826' y='540' width='210' height='22' rx='10' fill='#d4e5f5'/>
+  <rect x='826' y='540' width='164' height='22' rx='10' fill='#3f91cc'/>
+  <text x='1048' y='558' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Triagem</text>
+  <rect x='826' y='582' width='210' height='22' rx='10' fill='#d4e5f5'/>
+  <rect x='826' y='582' width='138' height='22' rx='10' fill='#3f91cc'/>
+  <text x='1048' y='600' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Atendimento</text>
+  <rect x='826' y='624' width='210' height='22' rx='10' fill='#d4e5f5'/>
+  <rect x='826' y='624' width='92' height='22' rx='10' fill='#3f91cc'/>
+  <text x='1048' y='642' fill='#50657f' font-size='18' font-family='Segoe UI, Arial'>Pós-atendimento</text>
+</svg>

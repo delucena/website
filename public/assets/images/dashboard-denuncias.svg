@@ -1,0 +1,43 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' role='img' aria-label='Dashboard de denúncias'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f4f8fc'/>
+      <stop offset='100%' stop-color='#e8f1fb'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='800' fill='url(#bg)'/>
+  <rect x='40' y='36' width='1120' height='86' rx='16' fill='#ffffff' stroke='#cbdced'/>
+  <text x='74' y='84' fill='#14263d' font-size='34' font-family='Segoe UI, Arial' font-weight='700'>Central de Denúncias - Visão Institucional</text>
+  <rect x='40' y='150' width='355' height='140' rx='14' fill='#fff' stroke='#cbdced'/>
+  <rect x='422' y='150' width='355' height='140' rx='14' fill='#fff' stroke='#cbdced'/>
+  <rect x='804' y='150' width='355' height='140' rx='14' fill='#fff' stroke='#cbdced'/>
+  <text x='66' y='196' fill='#50657f' font-size='24' font-family='Segoe UI, Arial'>Denúncias abertas</text>
+  <text x='66' y='250' fill='#1f75b2' font-size='52' font-family='Segoe UI, Arial' font-weight='700'>143</text>
+  <text x='447' y='196' fill='#50657f' font-size='24' font-family='Segoe UI, Arial'>Em fiscalização</text>
+  <text x='447' y='250' fill='#1f75b2' font-size='52' font-family='Segoe UI, Arial' font-weight='700'>57</text>
+  <text x='829' y='196' fill='#50657f' font-size='24' font-family='Segoe UI, Arial'>Tempo médio (dias)</text>
+  <text x='829' y='250' fill='#1f75b2' font-size='52' font-family='Segoe UI, Arial' font-weight='700'>4,2</text>
+  <rect x='40' y='318' width='720' height='430' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='66' y='362' fill='#14263d' font-size='26' font-family='Segoe UI, Arial' font-weight='600'>Fila por prioridade</text>
+  <rect x='80' y='410' width='100' height='290' rx='10' fill='#d9e7f5'/>
+  <rect x='200' y='460' width='100' height='240' rx='10' fill='#9cc7e8'/>
+  <rect x='320' y='510' width='100' height='190' rx='10' fill='#6daedc'/>
+  <rect x='440' y='550' width='100' height='150' rx='10' fill='#3f91cc'/>
+  <rect x='560' y='590' width='100' height='110' rx='10' fill='#1f75b2'/>
+  <text x='88' y='730' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Urgente</text>
+  <text x='211' y='730' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Alta</text>
+  <text x='338' y='730' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Média</text>
+  <text x='463' y='730' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Baixa</text>
+  <text x='590' y='730' fill='#50657f' font-size='20' font-family='Segoe UI, Arial'>Concl.</text>
+  <rect x='790' y='318' width='370' height='430' rx='16' fill='#fff' stroke='#cbdced'/>
+  <text x='816' y='362' fill='#14263d' font-size='26' font-family='Segoe UI, Arial' font-weight='600'>Alertas da IA</text>
+  <rect x='816' y='392' width='320' height='88' rx='10' fill='#eef6fd'/>
+  <text x='836' y='433' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='600'>3 denúncias com risco alto</text>
+  <text x='836' y='462' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Priorizar vistoria hoje</text>
+  <rect x='816' y='500' width='320' height='88' rx='10' fill='#eef6fd'/>
+  <text x='836' y='541' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='600'>2 bairros com recorrência</text>
+  <text x='836' y='570' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Planejar ação preventiva</text>
+  <rect x='816' y='608' width='320' height='112' rx='10' fill='#eef6fd'/>
+  <text x='836' y='649' fill='#1f75b2' font-size='22' font-family='Segoe UI, Arial' font-weight='600'>Tempo de resposta em queda</text>
+  <text x='836' y='678' fill='#50657f' font-size='19' font-family='Segoe UI, Arial'>Meta mensal +12% eficiência</text>
+</svg>
