@@ -67,7 +67,11 @@ main {
 }
 
 section[id] {
-  scroll-margin-top: calc(var(--header-height) + 1rem);
+  scroll-margin-top: calc(var(--header-height) + 0.9rem);
+}
+
+#conteudo {
+  scroll-margin-top: calc(var(--header-height) + 0.9rem);
 }
 
 .skip-link {
@@ -722,7 +726,7 @@ section[id] {
 }
 
 .cta .cta-inner {
-  max-width: 52rem;
+  max-width: none;
 }
 
 .cta .section-kicker {
@@ -730,8 +734,8 @@ section[id] {
 }
 
 .cta p {
-  margin: 1rem 0 1.5rem;
-  max-width: 58ch;
+  margin: 0.7rem 0 1rem;
+  max-width: 72ch;
   color: #d8e9f8;
 }
 
@@ -750,23 +754,23 @@ section[id] {
 
 .contact-form {
   margin: 0;
-  padding: 1.1rem;
-  display: grid;
-  gap: 0.95rem;
-}
-
-.contact-grid {
+  padding: 1rem;
   display: grid;
   gap: 0.8rem;
 }
 
+.contact-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
 .contact-field {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 .contact-field span {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   letter-spacing: 0.02em;
   font-weight: 700;
   color: #d8e9f8;
@@ -780,8 +784,9 @@ section[id] {
   border-radius: 0.75rem;
   background: rgb(5 19 33 / 52%);
   color: #fff;
-  padding: 0.72rem 0.82rem;
+  padding: 0.62rem 0.74rem;
   font: inherit;
+  font-size: 0.94rem;
 }
 
 .contact-field input::placeholder,
@@ -791,7 +796,7 @@ section[id] {
 
 .contact-field textarea {
   resize: vertical;
-  min-height: 8rem;
+  min-height: 6.25rem;
 }
 
 .contact-field input:focus-visible,
@@ -804,9 +809,9 @@ section[id] {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
-  gap: 0.6rem;
+  gap: 0.5rem;
   color: #d8e9f8;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .contact-check input {
@@ -815,7 +820,7 @@ section[id] {
 
 .contact-actions {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .contact-actions .btn[disabled] {
@@ -840,31 +845,31 @@ section[id] {
 }
 
 .contact-info {
-  padding: 1.1rem;
+  padding: 1rem;
 }
 
 .contact-info h3 {
   margin: 0;
   color: #fff;
-  font-size: 1.08rem;
+  font-size: 1rem;
 }
 
 .contact-info p {
-  margin: 0.7rem 0 0;
+  margin: 0.55rem 0 0;
   color: #d8e9f8;
 }
 
 .contact-info-list {
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
 
 .contact-info-list li {
   color: #d8e9f8;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .contact-info-list strong {
@@ -1598,7 +1603,7 @@ section[id] {
   }
 
   .contact-shell {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
     align-items: start;
   }
 
@@ -1701,6 +1706,14 @@ section[id] {
   }
 
   .pp-dashboard-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cta .cta-inner {
+    max-width: min(1200px, calc(100% - 1.4rem));
+  }
+
+  .contact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

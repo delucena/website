@@ -1,6 +1,27 @@
 const CONTACT_ENDPOINT = (import.meta.env.VITE_CONTACT_ENDPOINT || "/api/contact").trim() || "/api/contact";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
+function onlyDigits(value) {
+  return String(value || "").replace(/\D/g, "");
+}
+
+function formatPhoneForDisplay(rawValue) {
+  const digits = onlyDigits(rawValue).slice(0, 13);
+  let local = digits;
+
+  if (local.startsWith("55") && local.length > 10) {
+    local = local.slice(2);
+  }
+
+  const ddd = local.slice(0, 2);
+  const rest = local.slice(2);
+
+  if (!ddd) return "";
+  if (rest.length <= 4) return `(${ddd}) ${rest}`;
+  if (rest.length <= 8) return `(${ddd}) ${rest.slice(0, 4)}-${rest.slice(4)}`;
+  return `(${ddd}) ${rest.slice(0, 5)}-${rest.slice(5, 9)}`;
+}
+
 function normalizeWhitespace(value, maxLength = 160) {
   if (typeof value !== "string") return "";
   return value
@@ -168,6 +189,43 @@ function bindContactForms() {
   if (!forms.length) return;
 
   forms.forEach((form) => {
+    const emailInput = form.querySelector("input[name='email']");
+    const phoneInput = form.querySelector("input[name='phone']");
+
+    if (emailInput instanceof HTMLInputElement) {
+      emailInput.addEventListener("input", () => {
+        const normalized = emailInput.value.replace(/\s+/g, "");
+        if (emailInput.value !== normalized) emailInput.value = normalized;
+        if (!normalized || EMAIL_RE.test(normalized)) {
+          emailInput.setCustomValidity("");
+        } else {
+          emailInput.setCustomValidity("Informe um e-mail válido.");
+        }
+      });
+
+      emailInput.addEventListener("blur", () => {
+        emailInput.value = emailInput.value.trim().toLowerCase();
+        if (!emailInput.value || EMAIL_RE.test(emailInput.value)) {
+          emailInput.setCustomValidity("");
+        } else {
+          emailInput.setCustomValidity("Informe um e-mail válido.");
+        }
+      });
+    }
+
+    if (phoneInput instanceof HTMLInputElement) {
+      phoneInput.inputMode = "numeric";
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = formatPhoneForDisplay(phoneInput.value);
+        const localDigits = onlyDigits(phoneInput.value).replace(/^55/, "");
+        if (!localDigits || localDigits.length >= 10) {
+          phoneInput.setCustomValidity("");
+        } else {
+          phoneInput.setCustomValidity("Informe um telefone com DDD.");
+        }
+      });
+    }
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       submitContactForm(form);
