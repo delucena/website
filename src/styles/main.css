@@ -535,9 +535,15 @@ section[id] {
 .pp-dashboard-card p,
 .flow-list span,
 .dashboard-frame figcaption,
-.footer-copy {
+.footer-copy,
+.footer-legal {
   margin: 0.5rem 0 0;
   color: var(--muted);
+}
+
+.footer-legal {
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .command-panel {
